@@ -6,13 +6,21 @@ const headlineSchema = new Schema({
   headline: {
     type: String,
     requred: true,
-    unique: true
+    unique: { index: { unique: true } }
   },
   summary: {
     type: String,
     required: true
   },
-  date: String,
+  url: {
+    type: String,
+    required: true
+  },
+
+  date: {
+    type: Date,
+    default: Date.now
+  },
   saved: {
     type: Boolean,
     default: false
